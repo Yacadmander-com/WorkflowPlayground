@@ -1,0 +1,19 @@
+name: TriggerAnotherLessData
+run-name: This is the run-name of this Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      ma_var:
+        description: 'put a string to echo'
+        required: true
+        type: string
+        default: 'Hello World'
+
+jobs:
+  Main-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Yacadmander-com/WorkflowPlayground/push.yaml@main
+        with:
+          var_to_send: ${{ inputs.ma_var }}
+
